@@ -1,0 +1,40 @@
+.btn {
+  background-color: var(--main-color);
+  padding: 8px 24px;
+  color: white;
+  font-weight: bold;
+  border: 2px solid var(--main-color);
+  font-size: 18px;
+  cursor: pointer;
+  transition: 150ms ease;
+  &:hover {
+    background-color: white;
+    color: var(--main-color);
+  }
+}
+
+.btn-clear {
+  border: none;
+  background: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: 150ms ease;
+}
+
+.btn-icon {
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+    opacity: 0.6;
+  }
+  &--left {
+    svg {
+      margin-right: 4px;
+    }
+  }
+  &:hover {
+    svg {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.link {
+  color: #6c8cd5;
+  transition: 150ms ease;
+  &--white {
+    color: white;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}

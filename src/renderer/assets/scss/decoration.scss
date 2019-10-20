@@ -1,0 +1,96 @@
+:root {
+  --main-color: #ff5402;
+  --main-color-dark: #a63601;
+  --main-color-light: #ff7f41;
+}
+
+.box {
+  background-clip: content-box, border-box;
+  -webkit-background-clip: content-box, border-box;
+  background-origin: content-box, border-box;
+  padding: 1px;
+  border-radius: 4px;
+  box-shadow: -4px 4px 6px rgba(0, 0, 0, 0.05);
+  background-size: auto, 200% 200%;
+  background-position: 0% 100%;
+  position: relative;
+  transform-origin: left bottom;
+  transition: transform 200ms ease-in-out, box-shadow 300ms linear,
+    background-position 300ms linear;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(to bottom, #cfcfcf, #fff, #cfcfcf);
+  &:hover {
+    box-shadow: -4px 4px 6px rgba(0, 0, 0, 0.05);
+    background-image: linear-gradient(#fff, #fff),
+      linear-gradient(to bottom, #cfcfcf, #fff, #cfcfcf);
+    background-position: 0% 0%;
+  }
+  &:active {
+    background-position: 0% 100%;
+    background-image: linear-gradient(#fff, #fff),
+      linear-gradient(to bottom, #cfcfcf, #fff, #cfcfcf);
+  }
+  &__inner {
+    background-color: #fff;
+    border-radius: 4px;
+  }
+}
+
+.label {
+  opacity: 0.6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.triangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 0 0 0 4px;
+  background-color: #f3f3f3;
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+    border-radius: 0 0 0 4px;
+    background-image: linear-gradient(55.62deg, #ffffff 26.5%, #ececec 61%);
+    content: '';
+  }
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+    border-radius: 0 0 0 4px;
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.001) 50%,
+      #f3f3f3 50%
+    );
+    content: '';
+  }
+  .shadow {
+    position: absolute;
+    top: 4px;
+    left: 1px;
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    background-color: #000;
+    opacity: 0.32;
+    filter: blur(2px);
+    transition: 300ms ease-in-out;
+    transform: rotate(-4deg);
+    transform-origin: left top;
+  }
+}

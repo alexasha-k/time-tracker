@@ -1,0 +1,91 @@
+.radio-icon {
+  .radio-container {
+    margin-bottom: 0;
+    position: relative;
+    padding-left: 34px;
+    cursor: pointer;
+    display: inline-block;
+  }
+  input[type='checkbox'],
+  input[type='radio'] {
+    display: none;
+  }
+  .checkmark {
+    display: block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    box-shadow: inset -3px 3px 12px #cbcbcb;
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 50%;
+    left: 0;
+    top: 50%;
+    margin-top: -12px;
+    transition: 150ms ease;
+  }
+  input[type='checkbox']:checked + .checkmark,
+  input[type='radio']:checked + .checkmark {
+    background-color: var(--main-color-light);
+    box-shadow: inset -3px 3px 12px var(--main-color-dark);
+  }
+  .label {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.5);
+    transition: 150ms ease;
+  }
+  input[type='checkbox']:checked ~ .label,
+  input[type='radio']:checked ~ .label {
+    opacity: 1;
+  }
+  .icon-check {
+    display: block;
+    background-color: #ebebeb;
+    box-shadow: inset -3px 3px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    height: 20px;
+    line-height: 19px;
+    color: transparent;
+    text-align: center;
+    transition: 150ms ease;
+  }
+  input[type='checkbox'] + .checkmark {
+    border-radius: 2px;
+    .icon-check {
+      border-radius: 2px;
+    }
+  }
+  input[type='checkbox']:checked + .checkmark .icon-check,
+  input[type='radio']:checked + .checkmark .icon-check {
+    background-color: var(--main-color);
+    box-shadow: inset -3px 3px 4px rgba(0, 0, 0, 0.15);
+    color: #fff;
+  }
+  svg {
+    overflow: hidden;
+    vertical-align: middle;
+  }
+  &:hover,
+  &:active {
+    input[type='checkbox']:checked + .checkmark,
+    input[type='radio']:checked + .checkmark,
+    input[type='checkbox']:checked + .checkmark,
+    input[type='radio']:checked + .checkmark {
+      box-shadow: inset -3px 3px 12px var(--main-color-dark);
+    }
+    input[type='checkbox']:checked + .checkmark .icon-check,
+    input[type='radio']:checked + .checkmark .icon-check,
+    input[type='checkbox']:checked + .checkmark .icon-check,
+    input[type='radio']:checked + .checkmark .icon-check {
+      box-shadow: inset -3px 3px 6px rgba(0, 0, 0, 0.1);
+    }
+    input[type='checkbox']:checked ~ .label,
+    input[type='radio']:checked ~ .label,
+    input[type='checkbox']:checked ~ .label,
+    input[type='radio']:checked ~ .label {
+      opacity: 0.8;
+    }
+  }
+}
