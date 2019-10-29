@@ -19,6 +19,16 @@
             :placeholder="value.label"
           ></v-select>
         </template>
+        <template v-if="value.type === 'date'">
+          <datepicker
+            monday-first
+            v-model="schema[name].value"
+            :placeholder="value.label"
+            :disabled-dates="disabledDates"
+            :highlighted="highlighted"
+            calendar-class="time-tracker__datepicker"
+          ></datepicker>
+        </template>
       </div>
       <button type="submit" class="btn">Save</button>
     </form>
@@ -26,11 +36,18 @@
 </template>
 
 <script>
+import Datepicker from 'vuejs-datepicker'
 import { status } from '@/config/status.js'
 
 export default {
   data: vm => ({
-    error: ''
+    error: '',
+    disabledDates: {
+      to: new Date()
+    },
+    highlighted: {
+      days: [6, 0]
+    }
   }),
   props: ['schema'],
   computed: {
@@ -71,6 +88,10 @@ export default {
         el.focus()
       }
     }
+  },
+  components: { Datepicker },
+  mounted () {
+    console.log(Datepicker)
   }
 }
 </script>

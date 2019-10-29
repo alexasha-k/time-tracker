@@ -144,12 +144,12 @@ export default {
 
 <style lang="scss" scoped>
 .time-counter {
-  text-align: right;
-  padding: 8px 12px 8px 16px;
   overflow: hidden;
+  padding: 8px 12px 8px 16px;
+  text-align: right;
   &__btn {
-    vertical-align: middle;
     color: #fff;
+    vertical-align: middle;
     &:hover {
       opacity: 0.6;
     }
@@ -163,24 +163,25 @@ export default {
   position: relative;
   transition-duration: 0.4s;
   &::before {
-    content: '';
-    display: block;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    display: block;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
     background-color: #ffffff;
-    transition: all 800ms;
+    content: '';
     opacity: 0;
+    transition: all 800ms;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
   }
   &:active::before {
-    transition: 0s;
     width: 0;
     height: 0;
     opacity: 0.6;
+    transition: 0s;
   }
 }
 .add-time {
@@ -189,9 +190,9 @@ export default {
   &__form {
     display: flex;
     input {
+      margin-right: 4px;
       max-width: 46px;
       background-color: #ffffff;
-      margin-right: 4px;
     }
   }
 }

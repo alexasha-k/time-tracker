@@ -6,7 +6,9 @@
         <input type="text" v-model="name" />
       </form>
     </td>
-    <td></td>
+    <td>
+      <datepicker form="add-subtask-form" v-model="dateTo"></datepicker>
+    </td>
     <td>
       <button
         class="btn btn__add-subtask"
@@ -22,10 +24,12 @@
 <script>
 import { addSubtaskData } from '@/db.js'
 import { initialStatus } from '@/config/status.js'
+import Datepicker from 'vuejs-datepicker'
 
 export default {
   data: () => ({
-    name: ''
+    name: '',
+    dateTo: ''
   }),
   props: ['itemNumber', 'task'],
   methods: {
@@ -34,13 +38,14 @@ export default {
       if (this.name.trim()) {
         const currentDate = new Date()
         const status = initialStatus.value
-        const { name, task } = this
-        const data = { name, task, currentDate, status }
+        const { name, task, dateTo } = this
+        const data = { name, task, dateTo, currentDate, status }
         const result = await addSubtaskData(data)
         this.$emit('add-item', result)
       }
     }
-  }
+  },
+  components: { Datepicker }
 }
 </script>
 

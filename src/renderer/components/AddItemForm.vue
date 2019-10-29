@@ -28,7 +28,7 @@
           <span class="label">Add Task</span>
         </label>
       </div>
-      <div class="checkbox-wrapper radio-icon">
+      <div class="radio-icon">
         <label class="radio-container">
           <input
             type="radio"

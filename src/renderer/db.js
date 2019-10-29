@@ -28,7 +28,8 @@ db.tasks = new Datastore({
 //   name: String
 //   status: Number[enum]
 //   task: hash[task._id]
-//   time: Number
+//   time: Number,
+//   timeTo?: Date
 //   _id: hash
 // }
 // ************************ //

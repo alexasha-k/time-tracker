@@ -7,6 +7,7 @@ import router from './router'
 import store from './store'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import moment from 'moment'
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.http = Vue.prototype.$http = axios
@@ -55,6 +56,10 @@ Vue.filter('formatTime', function (time) {
   minutes = ('0' + minutes).slice(-2)
   let hours = Math.floor(time / 3600000)
   return `${hours}:${minutes}:${seconds}`
+})
+
+Vue.filter('formatDate', function (date) {
+  return moment(date).format('DD-MM-YYYY')
 })
 
 /* eslint-disable no-new */

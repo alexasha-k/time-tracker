@@ -21,6 +21,11 @@ const subTasksFields = async () => {
       type: 'select',
       label: 'Choose task',
       variations: []
+    },
+    dateTo: {
+      value: '',
+      type: 'date',
+      label: 'Choose date to'
     }
   }
   schema.task.variations = await getVariations()

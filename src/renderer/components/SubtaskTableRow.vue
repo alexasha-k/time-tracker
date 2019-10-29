@@ -1,7 +1,12 @@
 <template>
   <tr v-if="item">
     <td>{{ index + 1 }}</td>
-    <td>{{ item.name }}</td>
+    <td>
+      {{ item.name }}
+      <span v-if="item.dateTo" class="label">{{
+        item.dateTo | formatDate
+      }}</span>
+    </td>
     <td>
       <task-status
         :status="item.status"
