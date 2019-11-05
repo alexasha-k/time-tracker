@@ -12,11 +12,12 @@ export default {
   props: ['items'],
   computed: {
     totalTime: function () {
-      const total =
-        this.items.reduce(
-          (acc, item) => (+item.time ? acc + +item.time : acc),
-          0
-        ) || 0
+      let total =
+        this.items.reduce((acc, item) => {
+          let time = +item.time || +item.endTime - +item.startTime
+          return time ? acc + time : acc
+        }, 0) || 0
+
       return total
     }
   }

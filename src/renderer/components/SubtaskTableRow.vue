@@ -67,6 +67,7 @@ export default {
           startTime: this.$store.state.timer.startTime,
           endTime: Date.now()
         })
+        console.log(updatedInfo)
         updateSubItem({ _id: this.item._id }, updatedInfo)
         if (this.item._id === this.$store.state.timer.currentItem) {
           this.$store.dispatch('timer/SET_CURRENT_ITEM', null)

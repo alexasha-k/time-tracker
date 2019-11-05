@@ -2,6 +2,7 @@
   <div>
     <list-filters v-on:filter-items="filteredItems"></list-filters>
     <to-do-list-toggle v-model="showAll"></to-do-list-toggle>
+    <stat></stat>
     <div
       droppable="true"
       @drop="handleDrop(item, $event)"
@@ -27,6 +28,7 @@
 import ToDoItem from './ToDoItem.vue'
 import ToDoListToggle from './common/ToDoListToggle.vue'
 import ListFilters from './common/ListFilters.vue'
+import Stat from './common/Stat.vue'
 
 import { getData } from '../db.js'
 
@@ -40,7 +42,8 @@ export default {
   components: {
     ToDoItem,
     ListFilters,
-    ToDoListToggle
+    ToDoListToggle,
+    Stat
   },
   methods: {
     filteredItems: async function (val) {

@@ -71,7 +71,13 @@ function getData (filter) {
 }
 
 function getSubtaskData (taskId, filter, page) {
-  const params = filter ? { task: taskId, ...filter } : { task: taskId }
+  let params = {}
+  if (taskId) {
+    params.task = taskId
+  }
+  if (filter) {
+    params = { ...params, ...filter }
+  }
   const numPerPage = 10
   const startPos = page ? (page - 1) * numPerPage : 0
 
@@ -103,14 +109,16 @@ function getSubtaskCount (taskId, filter) {
 }
 
 function getTimeData (from, to) {
+  console.log(from, to)
   const params = {
-    $and: [{ startTime: { $gte: from } }, { endTime: { $lte: to } }]
+    $and: [{ startTime: { $gte: +from } }, { endTime: { $lte: +to } }]
   }
   const prom = new Promise(function (resolve, reject) {
     db.times
       .find(params)
       .sort({ status: -1, firstField: 1 })
       .exec(function (err, docs) {
+        console.log(docs, err)
         resolve(docs)
         reject(err)
       })
@@ -141,7 +149,7 @@ function addSubtaskData (data) {
 function addTimeData (data) {
   const prom = new Promise(function (resolve, reject) {
     db.times.insert(data, function (err, newData) {
-      // console.log(newData)
+      console.log(newData)
       resolve(newData)
       reject(err)
     })
@@ -177,7 +185,8 @@ function updateSubItem (item, newVal) {
 
 function removeItem (id) {
   const prom = new Promise(function (resolve, reject) {
-    db.tasks.remove({ _id: id }, { multi: true }, function (err, numRemoved) {
+    db.times.remove({ _id: id }, { multi: true }, function (err, numRemoved) {
+      console.log(err, numRemoved)
       resolve(numRemoved)
       reject(err)
     })

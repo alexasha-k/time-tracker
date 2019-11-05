@@ -37,4 +37,39 @@ body {
 .fade-leave-to {
   opacity: 0;
 }
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  thead td {
+    background-color: #f3f3f3;
+    font-weight: 600;
+    /deep/ button {
+      font-weight: 600;
+      font-size: inherit;
+    }
+  }
+  /deep/ td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  tbody /deep/ tr:nth-child(odd) td {
+    background-color: #ffffff;
+  }
+  tbody /deep/ tr td {
+    &.time-counter-cell {
+      padding: 0;
+      background-color: var(--main-color);
+      transition: 0.4s ease;
+      &.active {
+        background-color: #cd0074;
+      }
+    }
+  }
+}
+.title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
 </style>

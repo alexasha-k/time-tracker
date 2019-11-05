@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-toggle box">
+  <div class="todo-toggle">
     <div class="box">
       <div class="box__inner">
         <div class="todo-toggle__wrapper">
